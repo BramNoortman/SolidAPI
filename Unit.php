@@ -7,17 +7,23 @@ require 'Includes/header.php';
 
 if($_SERVER['REQUEST_METHOD'] == "GET") {
 
-    $Unit = $conn->prepare("SELECT * FROM unit WHERE Id = ? LIMIT 1");
-    $Unit->execute([$jsonBody->Id]);
+    // Assume the JSON body is already decoded and stored in $jsonBody
+    $jsonBody = json_decode(file_get_contents('php://input'));
 
-    $Unit = $Unit->fetch(PDO::FETCH_ASSOC);
+    // Ensure the JSON body contains the necessary id attribute
+    if (isset($jsonBody->id)) {
+        $unit = $conn->prepare("SELECT * FROM unit WHERE id = ? LIMIT 1");
+        $unit->execute([$jsonBody->id, $jsonBody->naam, $jsonBody->locatie, $jsonBody->manager]);
 
-    if($Unit){
-        $Unitfetch = $conn->prepare("SELECT * FROM unit(Naam, Locatie, Manager)values( ?, ?, ? )");
-        $Unitfetch->execute([$jsonBody->Naam, $jsonBody->Locatie, $jsonBody->Manager]);
-        echo json_encode(['unit_found']);
-    }
-    else {
-        echo json_encode(['unit_not_found']);
+        $unit = $unit->fetch(PDO::FETCH_ASSOC);
+
+        if ($unit) {
+            // Return the unit details if found
+            echo json_encode(['unit_found' => $unit]);
+        } else {
+            echo json_encode(['unit_not_found']);
+        }
+   // } else {
+        //echo json_encode(['error' => 'Invalid request, unit ID is missing']);
     }
 }
