@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #343a40;
+    color: white;
+    padding: 10px 20px;
+    border-bottom-right-radius: 8px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.dashboard {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.dashboard h1 {
+    margin-bottom: 20px;
+}
+
+.dashboard .card {
+    background-color: #ff0000;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.dashboard .card h2 {
+    margin: 0 0 10px 0;
+}
+
+.dashboard .card p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+/* Added CSS for displaying cards vertically */
+.dashboard .card {
+    display: block;
+    text-align: center;
+}
