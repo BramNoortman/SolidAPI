@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2024 at 01:45 PM
+-- Generation Time: May 23, 2024 at 11:33 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `main` (
-  `Id` int(11) NOT NULL,
-  `Totale_Omzet_id` int(11) NOT NULL,
-  `Sales_Omzet_id` int(11) NOT NULL,
-  `Resource_Omzet_id` int(11) NOT NULL,
-  `User_id` int(11) NOT NULL,
-  `Unit_id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `totale_omzet_id` int(11) NOT NULL,
+  `sales_omzet_id` int(11) NOT NULL,
+  `resource_omzet_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `unit_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -43,10 +43,10 @@ CREATE TABLE `main` (
 --
 
 CREATE TABLE `resource_omzet` (
-  `Id` int(11) NOT NULL,
-  `Unit_Id` int(11) NOT NULL,
-  `Omzet` decimal(10,0) NOT NULL,
-  `User_Id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `unit_Id` int(11) NOT NULL,
+  `omzet` decimal(10,0) NOT NULL,
+  `user_Id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -56,9 +56,9 @@ CREATE TABLE `resource_omzet` (
 --
 
 CREATE TABLE `sales_omzet` (
-  `Id` int(11) NOT NULL,
-  `Unit_Id` int(11) NOT NULL,
-  `Omzet` decimal(10,0) NOT NULL
+  `id` int(11) NOT NULL,
+  `unit_Id` int(11) NOT NULL,
+  `omzet` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -68,9 +68,9 @@ CREATE TABLE `sales_omzet` (
 --
 
 CREATE TABLE `totale_omzet` (
-  `Id` int(11) NOT NULL,
-  `Unit_Id` int(11) NOT NULL,
-  `Omzet` decimal(10,0) NOT NULL
+  `id` int(11) NOT NULL,
+  `unit_Id` int(11) NOT NULL,
+  `omzet` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -80,10 +80,10 @@ CREATE TABLE `totale_omzet` (
 --
 
 CREATE TABLE `unit` (
-  `Id` int(11) NOT NULL,
-  `Naam` varchar(255) NOT NULL,
-  `Locatie` varchar(255) NOT NULL,
-  `Manager` varchar(255) NOT NULL
+  `id` int(11) NOT NULL,
+  `naam` varchar(255) NOT NULL,
+  `locatie` varchar(255) NOT NULL,
+  `manager` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -93,10 +93,10 @@ CREATE TABLE `unit` (
 --
 
 CREATE TABLE `user` (
-  `Id` int(11) NOT NULL,
-  `Email` varchar(255) NOT NULL,
-  `Voornaam` varchar(255) NOT NULL,
-  `Achternaam` varchar(255) NOT NULL
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `voornaam` varchar(255) NOT NULL,
+  `achternaam` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -107,46 +107,46 @@ CREATE TABLE `user` (
 -- Indexes for table `main`
 --
 ALTER TABLE `main`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Totale_Omzet_id` (`Totale_Omzet_id`,`Sales_Omzet_id`,`Resource_Omzet_id`,`User_id`,`Unit_id`),
-  ADD KEY `User_id` (`User_id`),
-  ADD KEY `Unit_id` (`Unit_id`),
-  ADD KEY `Resource_Omzet_id` (`Resource_Omzet_id`),
-  ADD KEY `Sales_Omzet_id` (`Sales_Omzet_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `Totale_Omzet_id` (`totale_omzet_id`,`sales_omzet_id`,`resource_omzet_id`,`user_id`,`unit_id`),
+  ADD KEY `User_id` (`user_id`),
+  ADD KEY `Unit_id` (`unit_id`),
+  ADD KEY `Resource_Omzet_id` (`resource_omzet_id`),
+  ADD KEY `Sales_Omzet_id` (`sales_omzet_id`);
 
 --
 -- Indexes for table `resource_omzet`
 --
 ALTER TABLE `resource_omzet`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Unit_Id` (`Unit_Id`,`User_Id`),
-  ADD KEY `User_Id` (`User_Id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `Unit_Id` (`unit_Id`,`user_Id`),
+  ADD KEY `User_Id` (`user_Id`);
 
 --
 -- Indexes for table `sales_omzet`
 --
 ALTER TABLE `sales_omzet`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Unit_Id` (`Unit_Id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `Unit_Id` (`unit_Id`);
 
 --
 -- Indexes for table `totale_omzet`
 --
 ALTER TABLE `totale_omzet`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Unit_Id` (`Unit_Id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `Unit_Id` (`unit_Id`);
 
 --
 -- Indexes for table `unit`
 --
 ALTER TABLE `unit`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -156,37 +156,37 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `main`
 --
 ALTER TABLE `main`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `resource_omzet`
 --
 ALTER TABLE `resource_omzet`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sales_omzet`
 --
 ALTER TABLE `sales_omzet`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `totale_omzet`
 --
 ALTER TABLE `totale_omzet`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `unit`
 --
 ALTER TABLE `unit`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
