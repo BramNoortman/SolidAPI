@@ -1,62 +1,60 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
+.header {
+    overflow: hidden;
+    background-color: #242424;
+    padding: 20px 10px;
 }
 
-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #343a40;
-    color: white;
-    padding: 10px 20px;
-    border-bottom-right-radius: 8px;
+/* Style the logo image */
+.header img.logo {
+    float: left;
+    margin-right: 20px;
+    width: 150px;
+    height: 50px;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 1.5em;
-}
-
-.dashboard {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 80%;
-    max-width: 1000px;
+/* Style the header links */
+.header a {
+    float: left;
+    color: black;
     text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
 }
 
-.dashboard h1 {
-    margin-bottom: 20px;
+/* verander de background color on mouse-over */
+.header a:hover {
+    background-color: #cd2459;
+    color: black;
 }
 
-.dashboard .card {
-    background-color: #ff0000;
+/* Style de active/current link */
+.header a.active {
+    background-color: #cd2459;
     color: white;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 10px 0;
 }
 
-.dashboard .card h2 {
-    margin: 0 0 10px 0;
+/* Stijl voor de vakken */
+.sales, .resources, .total {
+    width: 33.33%; /* Verdeel de breedte in drie gelijke delen */
+    float: left; /* Zorg ervoor dat de vakken naast elkaar staan */
+    padding: 20px; /* Voeg wat ruimte toe rondom de inhoud */
+    box-sizing: border-box; /* Zorg ervoor dat padding niet de totale breedte beïnvloedt */
 }
 
-.dashboard .card p {
-    margin: 0;
-    font-size: 1.2em;
+/* Kleuren en andere stijlen kun je hier aanpassen */
+.sales {
+    background-color: #f2f2f2;
 }
 
-/* Added CSS for displaying cards vertically */
-.dashboard .card {
-    display: block;
-    text-align: center;
+.resources {
+    background-color: #e6e6e6;
 }
+
+.total {
+    background-color: #d9d9d9;
+}
+
