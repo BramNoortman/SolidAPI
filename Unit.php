@@ -1,29 +1,32 @@
 <?php
 
-// include de database connectie en header elements
-require 'Includes/DBconnection.php';
-require 'Includes/header.php';
-
+// include the database connection and header elements
+$conn = require 'Includes/DBconnection.php';
+require 'Includes/Header.php';
 
 if($_SERVER['REQUEST_METHOD'] == "GET") {
+    // Check if id is present in the GET request
+    if(isset($_GET['id'])) {
+        $id = $_GET['id'];
 
-    // Assume the JSON body is already decoded and stored in $jsonBody
-    $jsonBody = json_decode(file_get_contents('php://input'));
+        // Prepare SQL statement
+        $stmt = $conn->prepare("SELECT * FROM unit WHERE id = ?");
+        $stmt->bind_param("i", $id);
 
-    // Ensure the JSON body contains the necessary id attribute
-    if (isset($jsonBody->id)) {
-        $unit = $conn->prepare("SELECT * FROM unit WHERE id = ? LIMIT 1");
-        $unit->execute([$jsonBody->id, $jsonBody->naam, $jsonBody->locatie, $jsonBody->manager]);
+        // Execute the statement
+        $stmt->execute();
 
-        $unit = $unit->fetch(PDO::FETCH_ASSOC);
+        // Get the result
+        $result = $stmt->get_result();
 
-        if ($unit) {
-            // Return the unit details if found
-            echo json_encode(['unit_found' => $unit]);
+        // Fetch data and encode it as JSON
+        if($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+            echo json_encode($data);
         } else {
-            echo json_encode(['unit_not_found']);
+            echo json_encode(array("message" => "No record found with id: $id"));
         }
-   // } else {
-        //echo json_encode(['error' => 'Invalid request, unit ID is missing']);
+    } else {
+        echo json_encode(array("message" => "No id provided"));
     }
 }
