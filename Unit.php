@@ -10,8 +10,8 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
 
-        // Prepare SQL statement
-        $stmt = $conn->prepare("SELECT * FROM unit WHERE id = ?");
+        // Prepare SQL statement to select 'naam', 'locatie', and 'manager' from the 'unit' table where 'id' matches the provided 'id'
+        $stmt = $conn->prepare("SELECT naam, locatie, manager FROM unit WHERE id = ?");
         // Bind the provided 'id' to the SQL statement
         $stmt->bind_param("i", $id);
 
