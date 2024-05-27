@@ -4,6 +4,7 @@
 $conn = require 'Includes/DBconnection.php';
 require 'Includes/Header.php';
 
+// Check if the request method is GET
 if($_SERVER['REQUEST_METHOD'] == "GET") {
     // Check if id is present in the GET request
     if(isset($_GET['id'])) {
@@ -11,6 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
 
         // Prepare SQL statement
         $stmt = $conn->prepare("SELECT * FROM unit WHERE id = ?");
+        // Bind the provided 'id' to the SQL statement
         $stmt->bind_param("i", $id);
 
         // Execute the statement

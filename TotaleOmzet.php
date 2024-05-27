@@ -1,8 +1,8 @@
 <?php
 
-// Include the database connection file and the header file
+// Include the database connection file
 $conn = require 'Includes/DBconnection.php';
-require 'Includes/header.php';
+require 'Includes/Header.php';
 
 // Check if the request method is GET
 if($_SERVER['REQUEST_METHOD'] == "GET") {
@@ -11,8 +11,8 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
         // Store the 'id' in a variable
         $id = $_GET['id'];
 
-        // Prepare a SQL statement to select 'email', 'voornaam', and 'achternaam' from the 'user' table where the 'id' matches the provided 'id'
-        $stmt = $conn->prepare("SELECT email, voornaam, achternaam FROM user WHERE id = ?");
+        // Prepare a SQL statement to select id, unit_Id, omzet from the 'totale_omzet' table where the 'id' matches the provided 'id'
+        $stmt = $conn->prepare("SELECT id, unit_Id, omzet FROM totale_omzet WHERE id = ?");
         // Bind the provided 'id' to the SQL statement
         $stmt->bind_param("i", $id);
 

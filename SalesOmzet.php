@@ -11,8 +11,8 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
         // Store the 'id' in a variable
         $id = $_GET['id'];
 
-        // Prepare a SQL statement to select 'email', 'voornaam', and 'achternaam' from the 'user' table where the 'id' matches the provided 'id'
-        $stmt = $conn->prepare("SELECT email, voornaam, achternaam FROM user WHERE id = ?");
+        // Prepare a SQL statement to select the 'id', 'unit_id', and 'omzet' columns from the 'sales_omzet' table where the 'id' matches the provided 'id'
+        $stmt = $conn->prepare("SELECT id, unit_id, omzet FROM sales_omzet WHERE id = ?");
         // Bind the provided 'id' to the SQL statement
         $stmt->bind_param("i", $id);
 
