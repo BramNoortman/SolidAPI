@@ -3,6 +3,7 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/ResourceOmzet.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/SalesOmzet.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/TotaleOmzet.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/Unit.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/User.php" dialect="MySQL" />
   </component>
