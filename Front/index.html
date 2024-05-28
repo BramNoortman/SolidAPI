@@ -33,15 +33,57 @@
         <p id="totaleOmzet">Loading...</p>
         <button class="open-form-button">Invoeren</button>
     </div>
-</div>
-<div id="inputForm" class="form-card" style="display: none;">
-    <form id="dataForm">
-        <label for="data">Data:</label><br>
-        <input type="text" id="data" name="data"><br>
-        <input type="submit" value="Submit">
+
+    <div id="inputForm" class="form-card" style="display: none;">
+        <form id="dataForm">
+            <label for="unitId">Unit ID:</label><br>
+            <input type="text" id="unitId" name="unitId"><br>
+            <label for="omzet">Omzet:</label><br>
+            <input type="text" id="omzet" name="omzet"><br>
+            <label for="userId">User ID:</label><br>
+            <input type="text" id="userId" name="userId"><br>
+            <input type="submit" value="Submit" class="submit-button">
+            <button id="closeFormButton" class="open-form-button">Close</button>
+        </form>
+    </div>
+
+<script src="forum.js"></script>
+    <!-- Sales Omzet Form -->
+    <div id="salesInputForm" class="form-card" style="display: none;">
+        <form id="salesDataForm">
+            <label for="unitId">Unit ID:</label><br>
+            <input type="text" id="unitId" name="unitId"><br>
+            <label for="omzet">Omzet:</label><br>
+            <input type="text" id="omzet" name="omzet"><br>
+            <input type="submit" value="Submit" class="submit-button">
+            <button id="closeSalesFormButton" class="open-form-button">Close</button>
+        </form>
+    </div>
+
+<!-- Resource Omzet Form -->
+<div id="resourceInputForm" class="form-card resource-form-card" style="display: none;">
+    <form id="resourceDataForm">
+        <label for="unitId">Unit ID:</label><br>
+        <input type="text" id="unitId" name="unitId"><br>
+        <label for="omzet">Omzet:</label><br>
+        <input type="text" id="omzet" name="omzet"><br>
+        <label for="userId">User ID:</label><br>
+        <input type="text" id="userId" name="userId"><br>
+        <input type="submit" value="Submit" class="submit-button">
+        <button id="closeResourceFormButton" class="open-form-button">Close</button>
     </form>
 </div>
-<div class="footer"></div>
-<script src="forum.js"></script>
+    <!-- Totale Omzet Form -->
+    <div id="totalInputForm" class="form-card" style="display: none;">
+        <form id="totalDataForm">
+            <label for="unitId">Unit ID:</label><br>
+            <input type="text" id="unitId" name="unitId"><br>
+            <label for="omzet">Omzet:</label><br>
+            <input type="text" id="omzet" name="omzet"><br>
+            <input type="submit" value="Submit" class="submit-button">
+            <button id="closeTotalFormButton" class="open-form-button">Close</button>
+        </form>
+    </div>
+    <div class="footer"></div>
 </body>
 </html>
