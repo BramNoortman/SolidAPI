@@ -8,26 +8,40 @@
 </head>
 <body>
 <div class="header">
-    <!-- Display the logo image-->
     <img src="Media/kiota-logo.png" alt="Company Logo" class="logo">
     <div class="header-right">
         <a class ="active" href="#Unit-1">Unit 1</a>
         <a href="#Unit-2">Unit 2</a>
-        <a href="#Unit-3">Unit 3</a>
+        <a href="#Unit-3">Totaal :)</a>
     </div>
 </div>
-<div class="sales">
-    <h2>Sales Omzet</h2>
-    <p>€100.000</p>
+<div class="content">
+    <div class="leftSide">
+        <div class="sales card">
+            <h2>Sales Omzet</h2>
+            <p id="salesOmzet">Loading...</p>
+            <button class="open-form-button">Invoeren</button>
+        </div>
+        <div class="resources card">
+            <h2>Resource Omzet</h2>
+            <p id="resourceOmzet">Loading...</p>
+            <button class="open-form-button">Invoeren</button>
+        </div>
+    </div>
+    <div class="total card">
+        <h2>Totale Omzet</h2>
+        <p id="totaleOmzet">Loading...</p>
+        <button class="open-form-button">Invoeren</button>
+    </div>
 </div>
-<div class="resources">
-    <h2>Resource Omzet</h2>
-    <p>€50.000</p>
+<div id="inputForm" class="form-card" style="display: none;">
+    <form id="dataForm">
+        <label for="data">Data:</label><br>
+        <input type="text" id="data" name="data"><br>
+        <input type="submit" value="Submit">
+    </form>
 </div>
-<div class="total">
-    <h2>Totale Omzet</h2>
-    <p>€151.000</p>
-</div>
-
+<div class="footer"></div>
+<script src="forum.js"></script>
 </body>
 </html>
