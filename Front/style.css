@@ -15,6 +15,7 @@
 
 /* Style the header links */
 .header a {
+    font-family: Arial, sans-serif;
     float: left;
     color: #ffffff;
     text-align: center;
@@ -37,24 +38,83 @@
     color: white;
 }
 
-/* Stijl voor de vakken */
-.sales, .resources, .total {
-    width: 33.33%; /* Verdeel de breedte in drie gelijke delen */
-    float: left; /* Zorg ervoor dat de vakken naast elkaar staan */
-    padding: 20px; /* Voeg wat ruimte toe rondom de inhoud */
-    box-sizing: border-box; /* Zorg ervoor dat padding niet de totale breedte beïnvloedt */
-}
 
 /* Kleuren en andere stijlen kun je hier aanpassen */
-.sales {
-    background-color: #f2f2f2;
+.content {
+    display: flex;
+    flex-direction: row;
+}
+.leftSide, .total {
+    width: 50%;
+}
+.sales, .resources, .total {
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.resources {
-    background-color: #e6e6e6;
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #242424;
+    padding: 20px 10px;
+    color: #ffffff;
+    text-align: center;
 }
 
-.total {
-    background-color: #d9d9d9;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
+.header {
+    overflow: hidden;
+    background-color: #242424;
+    padding: 20px 10px;
+}
+.card {
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px; /* Increase to make the edges more rounded */
+    background-color: #393939; /* A bit lighter than the header */
+    margin: 20px;
+    color: #ffffff; /* Make the text color white */
+}
+
+.sales.card, .resources.card {
+    width: calc(100% - 40px); /* Increase to make these cards longer */
+}
+
+.total.card {
+    width: calc(50% - 40px);
+}
+.open-form-button {
+    background: linear-gradient(to bottom, #cd2459 0%, #cd2459 100%);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 3px 0 #cd2459, 0 3px 3px rgba(0,0,0,0.2);
+    text-shadow: 0 1px rgba(0,0,0,0.3);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10%;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    margin: 10px;
+    transition: all 0.2s ease;
+}
+
+.open-form-button:hover {
+    background: linear-gradient(to bottom, #cd2459 0%, #ff0099 100%);
+}
+
+.form-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: #393939;
+    color: #ffffff;
+    padding: 20px;
+    margin: 20px;
+    width: 50%; /* Adjust as needed */
+    margin: 0 auto; /* Center the form */
+}
