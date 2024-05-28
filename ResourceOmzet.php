@@ -11,9 +11,11 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
         // Store the 'id' in a variable
         $id = $_GET['id'];
 
-        // Prepare a SQL statement to select 'omzet' from the 'resource_omzet' table, 'voornaam' and 'achternaam' from the 'user' table, and 'naam', 'locatie', 'manager' from the 'unit' table where the 'id' matches the provided 'id'
+        // Prepare a SQL statement to select 'omzet' from the 'resource_omzet' table, 'voornaam', 'achternaam' from the 'user' table, and 'naam', 'locatie', 'manager' from the 'unit' table
+        // The 'resource_omzet' table is joined with the 'user' table based on the 'user_Id' and with the 'unit' table based on the 'unit_Id'
+        // The selection is filtered by the 'id' in the 'resource_omzet' table which should match the provided 'id'
         $stmt = $conn->prepare("SELECT resource_omzet.omzet, user.voornaam, user.achternaam, unit.naam, unit.locatie, unit.manager FROM resource_omzet INNER JOIN user ON resource_omzet.user_Id = user.id INNER JOIN unit ON resource_omzet.unit_Id = unit.id WHERE resource_omzet.id = ?");
-        // Bind the provided 'id' to the SQL statement
+         // Bind the provided 'id' to the SQL statement
         $stmt->bind_param("i", $id);
 
         // Execute the SQL statement
