@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2024 at 11:33 AM
+-- Generation Time: May 29, 2024 at 10:32 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,9 +45,16 @@ CREATE TABLE `main` (
 CREATE TABLE `resource_omzet` (
   `id` int(11) NOT NULL,
   `unit_Id` int(11) NOT NULL,
-  `omzet` decimal(10,0) NOT NULL,
+  `omzet` float NOT NULL,
   `user_Id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `resource_omzet`
+--
+
+INSERT INTO `resource_omzet` (`id`, `unit_Id`, `omzet`, `user_Id`) VALUES
+(1, 1, 21, 2);
 
 -- --------------------------------------------------------
 
@@ -58,8 +65,15 @@ CREATE TABLE `resource_omzet` (
 CREATE TABLE `sales_omzet` (
   `id` int(11) NOT NULL,
   `unit_Id` int(11) NOT NULL,
-  `omzet` decimal(10,0) NOT NULL
+  `omzet` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `sales_omzet`
+--
+
+INSERT INTO `sales_omzet` (`id`, `unit_Id`, `omzet`) VALUES
+(1, 1, 10.55);
 
 -- --------------------------------------------------------
 
@@ -70,8 +84,15 @@ CREATE TABLE `sales_omzet` (
 CREATE TABLE `totale_omzet` (
   `id` int(11) NOT NULL,
   `unit_Id` int(11) NOT NULL,
-  `omzet` decimal(10,0) NOT NULL
+  `omzet` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `totale_omzet`
+--
+
+INSERT INTO `totale_omzet` (`id`, `unit_Id`, `omzet`) VALUES
+(1, 1, 15.5);
 
 -- --------------------------------------------------------
 
@@ -85,6 +106,13 @@ CREATE TABLE `unit` (
   `locatie` varchar(255) NOT NULL,
   `manager` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `unit`
+--
+
+INSERT INTO `unit` (`id`, `naam`, `locatie`, `manager`) VALUES
+(1, 'Finance', 'Brugstraat 2 6191 KC Beek Nederland', 'Joost Schouren');
 
 -- --------------------------------------------------------
 
@@ -100,6 +128,14 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `email`, `voornaam`, `achternaam`) VALUES
+(1, '507191@vistacollege.nl', 'Bram', 'Noortman'),
+(2, '509647@vistacollege.nl', 'Joris', 'de Vries');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -111,8 +147,8 @@ ALTER TABLE `main`
   ADD KEY `Totale_Omzet_id` (`totale_omzet_id`,`sales_omzet_id`,`resource_omzet_id`,`user_id`,`unit_id`),
   ADD KEY `User_id` (`user_id`),
   ADD KEY `Unit_id` (`unit_id`),
-  ADD KEY `Resource_Omzet_id` (`resource_omzet_id`),
-  ADD KEY `Sales_Omzet_id` (`sales_omzet_id`);
+  ADD KEY `sales_omzet_id` (`sales_omzet_id`),
+  ADD KEY `resource_omzet_id` (`resource_omzet_id`);
 
 --
 -- Indexes for table `resource_omzet`
@@ -162,31 +198,31 @@ ALTER TABLE `main`
 -- AUTO_INCREMENT for table `resource_omzet`
 --
 ALTER TABLE `resource_omzet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sales_omzet`
 --
 ALTER TABLE `sales_omzet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `totale_omzet`
 --
 ALTER TABLE `totale_omzet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `unit`
 --
 ALTER TABLE `unit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -200,7 +236,9 @@ ALTER TABLE `main`
   ADD CONSTRAINT `main_ibfk_2` FOREIGN KEY (`Unit_id`) REFERENCES `unit` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `main_ibfk_3` FOREIGN KEY (`Resource_Omzet_id`) REFERENCES `resource_omzet` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `main_ibfk_4` FOREIGN KEY (`Sales_Omzet_id`) REFERENCES `sales_omzet` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `main_ibfk_5` FOREIGN KEY (`Totale_Omzet_id`) REFERENCES `totale_omzet` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `main_ibfk_5` FOREIGN KEY (`Totale_Omzet_id`) REFERENCES `totale_omzet` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `main_ibfk_6` FOREIGN KEY (`sales_omzet_id`) REFERENCES `sales_omzet` (`Id`),
+  ADD CONSTRAINT `main_ibfk_7` FOREIGN KEY (`resource_omzet_id`) REFERENCES `resource_omzet` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `resource_omzet`
