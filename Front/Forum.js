@@ -37,3 +37,5 @@ document.getElementById('closeResourceFormButton').addEventListener('click', fun
 document.getElementById('closeTotalFormButton').addEventListener('click', function() {
     document.getElementById('totalInputForm').style.display = 'none';
 });
+
+

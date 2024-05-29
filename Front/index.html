@@ -10,9 +10,9 @@
 <div class="header">
     <img src="Media/kiota-logo.png" alt="Company Logo" class="logo">
     <div class="header-right">
-        <a class ="active" href="#Unit-1">Unit 1</a>
-        <a href="#Unit-2">Unit 2</a>
-        <a href="#Unit-3">Totaal :)</a>
+        <a class ="active" href="index.html">Unit 1</a>
+        <a href="unit2.html">Unit 2</a>
+        <a href="totaal.html">Totaal :)</a>
     </div>
 </div>
 <div class="content">
@@ -47,10 +47,12 @@
         </form>
     </div>
 
-<script src="forum.js"></script>
+<script src="Forum.js"></script>
+
     <!-- Sales Omzet Form -->
     <div id="salesInputForm" class="form-card" style="display: none;">
-        <form id="salesDataForm">
+        <form id="salesDataForm" action="/UserInput.php" method="post">
+            <h2 class="form-title">Sales omzet</h2>
             <label for="unitId">Unit ID:</label><br>
             <input type="text" id="unitId" name="unitId"><br>
             <label for="omzet">Omzet:</label><br>
@@ -63,6 +65,7 @@
 <!-- Resource Omzet Form -->
 <div id="resourceInputForm" class="form-card resource-form-card" style="display: none;">
     <form id="resourceDataForm">
+        <h2 class="form-title">Resource omzet</h2>
         <label for="unitId">Unit ID:</label><br>
         <input type="text" id="unitId" name="unitId"><br>
         <label for="omzet">Omzet:</label><br>
@@ -76,6 +79,7 @@
     <!-- Totale Omzet Form -->
     <div id="totalInputForm" class="form-card" style="display: none;">
         <form id="totalDataForm">
+            <h2 class="form-title">Totale omzet</h2>
             <label for="unitId">Unit ID:</label><br>
             <input type="text" id="unitId" name="unitId"><br>
             <label for="omzet">Omzet:</label><br>
