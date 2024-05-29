@@ -2,11 +2,12 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/ResourceOmzet.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/ResourceOmzetInput.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/SalesOmzet.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/TotaleOmzet.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/Unit.php" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/User.php" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/UserInput.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/solid.sql" dialect="MySQL" />
     <file url="PROJECT" dialect="MySQL" />
   </component>
 </project>
