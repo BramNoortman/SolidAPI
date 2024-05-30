@@ -19,18 +19,18 @@
     <div class="leftSide">
         <div class="sales card">
             <h2>Sales Omzet</h2>
-            <p id="salesOmzet">Loading...</p>
+            <p id="salesOmzetGET">Loading...</p>
             <button class="open-form-button">Invoeren</button>
         </div>
         <div class="resources card">
             <h2>Resource Omzet</h2>
-            <p id="resourceOmzet">Loading...</p>
+            <p id="resourceOmzetGET">Loading...</p>
             <button class="open-form-button">Invoeren</button>
         </div>
     </div>
     <div class="total card">
         <h2>Totale Omzet</h2>
-        <p id="totaleOmzet">Loading...</p>
+        <p id="totaleOmzetGET">Loading...</p>
         <button class="open-form-button">Invoeren</button>
     </div>
 
@@ -51,16 +51,16 @@
 
 <!-- Sales Omzet Form -->
 <div id="salesInputForm" class="form-card" style="display: none;">
-    <form id="salesDataForm" action="/ResourceOmzetInput.php" method="post">
+    <form id="salesDataForm" action="/SalesOmzetInput.php" method="post">
         <h2 class="form-title">Sales omzet</h2>
-        <label for="unitName">Unit Name:</label><br>
-        <input type="text" id="" name="unitName"><br>
-        <label for="omzet">Omzet:</label><br>
-        <input type="text" id="" name="omzet"><br>
-        <label for="userName">User Name:</label><br>
-        <input type="text" id="" name="userName"><br>
-        <button type="submit" value="Submit" class="submit-button">
-        <button id="closeSalesFormButton" class="open-form-button">Close</button>
+        <label for="salesUnitName">Unit Name:</label><br>
+        <input type="text" id="salesUnitName" name="salesUnitName"><br>
+        <label for="salesOmzet">Omzet:</label><br>
+        <input type="text" id="salesOmzet" name="salesOmzet"><br>
+        <label for="salesUserName">User Name:</label><br>
+        <input type="text" id="salesUserName" name="salesUserName"><br>
+        <input type="submit" value="Submit" class="submit-button">
+        <button id="salesCloseFormButton" class="open-form-button">Close</button>
     </form>
 </div>
 
@@ -75,7 +75,7 @@
         <label for="userName">User Name:</label><br>
         <input type="text" id="userName" name="userName"><br>
         <button type="submit" class="submit-button">Submit</button>
-        <button id="closeResourceFormButton" class="open-form-button">Close</button>
+        <button type="button" id="closeResourceFormButton" class="open-form-button">Close</button>
     </form>
 </div>
 

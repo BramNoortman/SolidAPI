@@ -11,6 +11,13 @@ document.querySelector('.sales.card .open-form-button').addEventListener('click'
     document.getElementById('salesInputForm').style.display = 'block';
 });
 
+
+// Event listener for the open form button in the Resource Omzet card
+document.querySelector('.resources.card .open-form-button').addEventListener('click', function() {
+    closeAllForms();
+    document.getElementById('resourceInputForm').style.display = 'block';
+});
+
 // Event listener for the button click event in the Resources Omzet form
 document.querySelector('.resource-form-card .submit-button').addEventListener('click', function () {
     // Get the input values from the form
@@ -51,10 +58,7 @@ document.querySelector('.resource-form-card .submit-button').addEventListener('c
     document.getElementById('resourceInputForm').style.display = 'none';
 });
 
-// Event listener for the close form button in the Resources Omzet form
-document.getElementById('closeResourceFormButton').addEventListener('click', function () {
-    document.getElementById('resourceInputForm').style.display = 'none';
-});
+
 
 // Event listener for the open form button in the Total Omzet card
 document.querySelector('.total.card .open-form-button').addEventListener('click', function () {
