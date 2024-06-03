@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiota</title>
-    <script src="SalesOmzetForm.js"></script>
+    <script src="Forum.js"></script>
 </head>
 <body>
 
 <div class="header">
     <img src="Media/kiota-logo.png" alt="Company Logo" class="logo">
     <div class="header-right">
-        <a href="index.php">Unit 1</a>
-        <a class ="active" href="unit2.Php">Unit 2</a>
-        <a href="totaal.php">Totaal :)</a>
+        <a href="index.html">Unit 1</a>
+        <a class ="active" href="unit2.html">Unit 2</a>
+        <a href="totaal.html">Totaal :)</a>
     </div>
 </div>
 
@@ -51,7 +51,7 @@
     </form>
 </div>
 
-<script src="SalesOmzetForm.js"></script>
+<script src="Forum.js"></script>
 <!-- Sales Omzet Form -->
 <div id="salesInputForm" class="form-card" style="display: none;">
     <form id="salesDataForm">
@@ -92,6 +92,6 @@
     </form>
 </div>
 <div class="footer"></div>
-<script src="SalesOmzetForm.js"></script>
+<script src="Forum.js"></script>
 </body>
 </html>

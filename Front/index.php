@@ -9,23 +9,27 @@
 <body>
 <div class="header">
     <img src="Media/kiota-logo.png" alt="Company Logo" class="logo">
-    <div class="header-right">
-        <a class ="active" href="index.php">Unit 1</a>
-        <a href="unit2.Php">Unit 2</a>
-        <a href="totaal.php">Totaal :)</a>
+    <div class="dropdown">
+        <a class="active dropdown-toggle" href="#">Unit 1 - Joost Schouren</a>
+        <div class="dropdown-content">
+            <a href="#">Units</a>
+            <a href="index.html">Unit 1 - Joost Schouren</a>
+            <a href="unit2.html">Unit 2 - Dave</a>
+            <a href="totaal.html">Totaal</a>
+        </div>
     </div>
 </div>
 <div class="content">
     <div class="leftSide">
         <div class="sales card">
             <h2>Sales Omzet</h2>
-            <label ="salesOmzetGET">Loading...</label>
+            <p id="salesOmzetGET">Loading...</p>
             <button class="open-form-button">Invoeren</button>
         </div>
         <div class="resources card">
             <h2>Resource Omzet</h2>
             <p id="resourceOmzetGET">Loading...</p>
-            <button type="button" class="open-form-button">Invoeren</button>
+            <button class="open-form-button">Invoeren</button>
         </div>
     </div>
     <div class="total card">
@@ -36,8 +40,7 @@
 
     <div id="inputForm" class="form-card" style="display: none;">
         <form id="dataForm">
-            <label for="unitId">Unit ID:</label><br>
-            <input type="text" id="unitId" name="unitId"><br>
+            <h3>Unit 1 - Joost</h3>
             <label for="omzet">Omzet:</label><br>
             <input type="text" id="" name="omzet"><br>
             <label for="userId">User ID:</label><br>
@@ -47,22 +50,19 @@
         </form>
     </div>
 
-<script src="SalesOmzetForm.js"></script>
+    <script src="Forum.js"></script>
 
-<!-- Sales Omzet Form -->
-<div id="salesInputForm" class="form-card" style="display: none;">
-    <form id="salesDataForm" action="/SalesOmzetInput.php" method="post">
-        <h2 class="form-title">Sales omzet</h2>
-        <label for="salesUnitName">Unit Name:</label><br>
-        <input type="text" id="salesUnitName" name="salesUnitName"><br>
-        <label for="salesOmzet">Omzet:</label><br>
-        <input type="text" id="salesOmzet" name="salesOmzet"><br>
-        <label for="salesUserName">User Name:</label><br>
-        <input type="text" id="salesUserName" name="salesUserName"><br>
-        <input type="submit" value="Submit" class="submit-button">
-        <button id="salesCloseFormButton" class="open-form-button">Close</button>
-    </form>
-</div>
+    <!-- Sales Omzet Form -->
+    <div id="salesInputForm" class="form-card" style="display: none;">
+        <form id="salesDataForm" action="/SalesOmzetInput.php" method="post">
+            <h2 class="form-title">Sales omzet</h2>
+            <h3>Unit 1 - Joost</h3>
+            <label for="salesOmzet">Omzet:</label><br>
+            <input type="text" id="salesOmzet" name="salesOmzet"><br>
+            <button type="submit" class="submit-button">Submit</button>
+            <button id="salesCloseFormButton" class="open-form-button">Close</button>
+        </form>
+    </div>
 
 <!-- Resource Omzet Form -->
 <div id="resourceOmzetInputForm" class="form-card resource-form-card" style="display: none ;">
@@ -78,6 +78,19 @@
         <button type="button" id="closeResourceOmzetFormButton" class="open-form-button">Close</button>
     </form>
 </div>
+    <!-- Resource Omzet Form -->
+    <div id="resourceInputForm" class="form-card resource-form-card" style="display: none;">
+        <form id="resourceDataForm" action="/SolidAPI/ResourceOmzetInput.php" method="post">
+            <h2 class="form-title">Resource omzet</h2>
+            <h3>Unit 1 - Joost</h3>
+            <label for="omzet">Omzet:</label><br>
+            <input type="text" id="omzet" name="omzet"><br>
+            <label for="userName">Consultant:</label><br>
+            <input type="text" id="userName" name="userName"><br>
+            <button type="submit" class="submit-button">Submit</button>
+            <button type="button" id="closeResourceFormButton" class="open-form-button">Close</button>
+        </form>
+    </div>
 
     <!-- Totale Omzet Form -->
     <div id="totalInputForm" class="form-card" style="display: none;">
@@ -88,6 +101,10 @@
             <label for="totalOmzet">Omzet:</label><br>
             <input type="text" id="totalOmzet" name="omzet"><br>
             <input type="submit" value="Submit" class="submit-button">
+            <h3>Unit 1 - Joost</h3>
+            <label for="omzet">Omzet:</label><br>
+            <input type="text" id="" name="omzet"><br>
+            <button type="submit" class="submit-button">Submit</button>
             <button id="closeTotalFormButton" class="open-form-button">Close</button>
         </form>
     </div>
