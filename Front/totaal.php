@@ -8,13 +8,13 @@
 </head>
 
 <body>
-<script src="Forum.js"></script>
+<script src="SalesOmzetForm.js"></script>
 <div class="header">
   <img src="Media/kiota-logo.png" alt="Company Logo" class="logo">
   <div class="header-right">
-    <a href="index.html">Unit 1</a>
-    <a href="unit2.html">Unit 2</a>
-    <a class ="active" href="totaal.html">Totaal :)</a>
+    <a href="index.php">Unit 1</a>
+    <a href="unit2.Php">Unit 2</a>
+    <a class ="active" href="totaal.php">Totaal :)</a>
   </div>
 </div>
 
@@ -51,7 +51,7 @@
   </form>
 </div>
 
-<script src="Forum.js"></script>
+<script src="SalesOmzetForm.js"></script>
 <!-- Sales Omzet Form -->
 <div id="salesInputForm" class="form-card" style="display: none;">
   <form id="salesDataForm">
@@ -93,6 +93,6 @@
 </div>
 
 <div class="footer"></div>
-<script src="Forum.js"></script>
+<script src="SalesOmzetForm.js"></script>
 </body>
 </html>

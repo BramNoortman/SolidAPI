@@ -1,3 +1,4 @@
+
 // Function to close all forms
 function closeAllForms() {
     document.getElementById('salesInputForm').style.display = 'none';
@@ -5,21 +6,18 @@ function closeAllForms() {
     document.getElementById('totalInputForm').style.display = 'none';
 }
 
-// Event listener for the open form button in the Sales Omzet card
-document.querySelector('.sales.card .open-form-button').addEventListener('click', function() {
-    closeAllForms();
-    document.getElementById('salesInputForm').style.display = 'block';
-});
-
-
 // Event listener for the open form button in the Resource Omzet card
 document.querySelector('.resources.card .open-form-button').addEventListener('click', function() {
+    console.log('Open form button clicked')
     closeAllForms();
-    document.getElementById('resourceInputForm').style.display = 'block';
+  document.getElementById('resourceOmzetInputForm').style.display = 'block';
 });
 
-// Event listener for the button click event in the Resources Omzet form
-document.querySelector('.resource-form-card .submit-button').addEventListener('click', function () {
+// Event listener for the form submit event in the Resources Omzet form
+document.getElementById('resourceOmzetDataForm').addEventListener('submit', function (event) {
+    // Prevent the form from being submitted the default way
+    event.preventDefault();
+
     // Get the input values from the form
     var unitName = document.getElementById('ResourceunitName').value;
     var omzet = document.getElementById('omzet').value;
@@ -35,7 +33,7 @@ document.querySelector('.resource-form-card .submit-button').addEventListener('c
     var xhr = new XMLHttpRequest();
 
     // Configure the request
-    xhr.open('POST', '../SolidAPI/ResourceOmzetInput.php', true);
+    xhr.open('POST', '../SolidAPI/ResourceOmzetInputJoost.php', true);
 
     // Set up a handler for when the request finishes
     xhr.onload = function () {
@@ -58,25 +56,7 @@ document.querySelector('.resource-form-card .submit-button').addEventListener('c
     document.getElementById('resourceInputForm').style.display = 'none';
 });
 
-
-
-// Event listener for the open form button in the Total Omzet card
-document.querySelector('.total.card .open-form-button').addEventListener('click', function () {
-    closeAllForms();
-    document.getElementById('totalInputForm').style.display = 'block';
-});
-
-// Event listener for the close form button in the Sales Omzet form
-document.getElementById('closeSalesFormButton').addEventListener('click', function () {
-    document.getElementById('salesInputForm').style.display = 'none';
-});
-
 // Event listener for the close form button in the Resources Omzet form
 document.getElementById('closeResourceFormButton').addEventListener('click', function () {
     document.getElementById('resourceInputForm').style.display = 'none';
-});
-
-// Event listener for the close form button in the Total Omzet form
-document.getElementById('closeTotalFormButton').addEventListener('click', function () {
-    document.getElementById('totalInputForm').style.display = 'none';
 });

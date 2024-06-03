@@ -5,8 +5,8 @@
 $conn = require 'Includes/DBconnection.php';
 require 'Includes/Header.php';
 
-// Get the values from the form input
-$unitName = $_POST['unitName'];
+// Hardcode the unitName as "Totaal" and get the userName and omzet from the POST request
+$unitName = "Totaal";
 $userName = $_POST['userName'];
 $omzet = $_POST['omzet'];
 
@@ -57,5 +57,5 @@ $stmtUser->close();
 $conn->close();
 
 // After handling the POST request, redirect back to the original page
-header('Location: ../SolidAPI/Front/index.html');
+header('Location: ../SolidAPI/Front/index.php');
 exit;

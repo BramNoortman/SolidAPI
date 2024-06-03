@@ -10,22 +10,22 @@
 <div class="header">
     <img src="Media/kiota-logo.png" alt="Company Logo" class="logo">
     <div class="header-right">
-        <a class ="active" href="index.html">Unit 1</a>
-        <a href="unit2.html">Unit 2</a>
-        <a href="totaal.html">Totaal :)</a>
+        <a class ="active" href="index.php">Unit 1</a>
+        <a href="unit2.Php">Unit 2</a>
+        <a href="totaal.php">Totaal :)</a>
     </div>
 </div>
 <div class="content">
     <div class="leftSide">
         <div class="sales card">
             <h2>Sales Omzet</h2>
-            <p id="salesOmzetGET">Loading...</p>
+            <label ="salesOmzetGET">Loading...</label>
             <button class="open-form-button">Invoeren</button>
         </div>
         <div class="resources card">
             <h2>Resource Omzet</h2>
             <p id="resourceOmzetGET">Loading...</p>
-            <button class="open-form-button">Invoeren</button>
+            <button type="button" class="open-form-button">Invoeren</button>
         </div>
     </div>
     <div class="total card">
@@ -47,7 +47,7 @@
         </form>
     </div>
 
-<script src="Forum.js"></script>
+<script src="SalesOmzetForm.js"></script>
 
 <!-- Sales Omzet Form -->
 <div id="salesInputForm" class="form-card" style="display: none;">
@@ -65,17 +65,17 @@
 </div>
 
 <!-- Resource Omzet Form -->
-<div id="resourceInputForm" class="form-card resource-form-card" style="display: none;">
-<form id="resourceDataForm" action="/SolidAPI/ResourceOmzetInput.php" method="post">
+<div id="resourceOmzetInputForm" class="form-card resource-form-card" style="display: none ;">
+    <form id="resourceOmzetDataForm" action="/SolidAPI/ResourceOmzetInputJoost.php" method="post">
         <h2 class="form-title">Resource omzet</h2>
-        <label for="ResourceunitName">Unit Name:</label><br>
-        <input type="text" id="ResourceunitName" name="unitName"><br>
-        <label for="omzet">Omzet:</label><br>
-        <input type="text" id="omzet" name="omzet"><br>
-        <label for="userName">User Name:</label><br>
-        <input type="text" id="userName" name="userName"><br>
+        <label for="resourceUnitName">Unit Name:</label><br>
+        <input type="text" id="resourceUnitName" name="unitName"><br>
+        <label for="resourceOmzet">Omzet:</label><br>
+        <input type="text" id="resourceOmzet" name="omzet"><br>
+        <label for="resourceUserName">User Name:</label><br>
+        <input type="text" id="resourceUserName" name="userName"><br>
         <button type="submit" class="submit-button">Submit</button>
-        <button type="button" id="closeResourceFormButton" class="open-form-button">Close</button>
+        <button type="button" id="closeResourceOmzetFormButton" class="open-form-button">Close</button>
     </form>
 </div>
 
@@ -83,14 +83,21 @@
     <div id="totalInputForm" class="form-card" style="display: none;">
         <form id="totalDataForm">
             <h2 class="form-title">Totale omzet</h2>
-            <label for="unitId">Unit ID:</label><br>
-            <input type="text" id="" name="unitId"><br>
-            <label for="omzet">Omzet:</label><br>
-            <input type="text" id="" name="omzet"><br>
+            <label for="totalUnitId">Unit ID:</label><br>
+            <input type="text" id="totalUnitId" name="unitId"><br>
+            <label for="totalOmzet">Omzet:</label><br>
+            <input type="text" id="totalOmzet" name="omzet"><br>
             <input type="submit" value="Submit" class="submit-button">
             <button id="closeTotalFormButton" class="open-form-button">Close</button>
         </form>
     </div>
+
     <div class="footer"></div>
+    <!-- Include the JavaScript file for the Resource Omzet form -->
+    <script src="ResourceOmzetFormJoost.js"></script>
+    <!-- Include the JavaScript file for the Sales Omzet form -->
+    <script src="SalesOmzetForm.js"></script>
+    <!-- Include the JavaScript file for the Total Omzet form -->
+    <script src="TotalOmzetForm.js"></script>
 </body>
 </html>

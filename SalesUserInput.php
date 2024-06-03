@@ -38,5 +38,5 @@ $stmtUnit->close();
 $conn->close();
 
 // After handling the POST request, redirect back to the original page
-header('Location: ../SolidAPI/Front/index.html');
+header('Location: ../SolidAPI/Front/index.php');
 exit;
