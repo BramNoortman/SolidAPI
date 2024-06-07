@@ -1,45 +1,45 @@
 <?php
-// post data from the form to the database
 
-// Include the database connection and Header
+// Step 1: Include your database connection
 $conn = require 'Includes/DBconnection.php';
 require 'Includes/Header.php';
 
-// Hardcode the unitId as 1 (Finance) and get the userName and omzet from the POST request
-$unitId = 1;
-$userName = $_POST['userName'];
+// Step 2: Retrieve the data sent by the JavaScript
+$unitId = $_POST['unitId'];
 $omzet = $_POST['omzet'];
+$userName = $_POST['userName'];
 
-// prepare the SQL statement to get the id of the user
-$stmtUser = $conn->prepare("SELECT id FROM user WHERE voornaam = ? AND unit_id = ?");
+// Split the username into voornaam and achternaam
+list($voornaam, $achternaam) = explode(' ', $userName);
 
-// bind the values and execute
-$stmtUser->bind_param("si", $userName, $unitId);
-$stmtUser->execute();
+// Step 3: Prepare a SQL query to get the user ID
+$stmt = $conn->prepare("SELECT id FROM user WHERE voornaam = ? AND achternaam = ?");
+$stmt->bind_param("ss", $voornaam, $achternaam);
 
-$resultUser = $stmtUser->get_result();
-$user = $resultUser->fetch_assoc();
+// Step 4: Execute the query and fetch the result
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
 
-if (!$user) {
-    exit;
+if ($user) {
+    $userId = $user['id'];
+
+    // Step 5: Prepare a SQL query to insert the data into the resource_omzet table
+    $stmt = $conn->prepare("INSERT INTO resource_omzet (unit_Id, omzet, user_Id) VALUES (?, ?, ?)");
+    $stmt->bind_param("ids", $unitId, $omzet, $userId);
+
+    // Step 6: Execute the insert query
+    $stmt->execute();
+
+    if ($stmt->affected_rows > 0) {
+        echo "Data inserted successfully";
+    } else {
+        echo "Error inserting data";
+    }
+} else {
+    echo "User not found";
 }
 
-$userId = $user['id'];
-
-// prepare the SQL statement to insert a new record into the resource_omzet table
-// Ensure that the column names match with your database schema
-$stmt = $conn->prepare("INSERT INTO resource_omzet (unit_Id, omzet, user_Id) VALUES (?, ?, ?)");
-
-// bind the values and execute
-$stmt->bind_param("iss", $unitId, $omzet, $userId);
-
-// execute the statement and check if it was successful
-$stmt->execute();
-
 $stmt->close();
-$stmtUser->close();
 $conn->close();
-
-// After handling the POST request, redirect back to the original page
-header('Location: ../SolidAPI/Front/index.php');
-exit;
+?>

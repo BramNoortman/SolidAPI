@@ -43,6 +43,9 @@
 .leftSide, .total {
     width: 50%;
 }
+.resources {
+    width: 100%;
+}
 
 .sales, .resources, .total {
     padding: 20px;
@@ -78,12 +81,12 @@ body {
     color: #ffffff;
 }
 
-.sales.card, .resources.card {
+.sales.card, .total.card {
     width: calc(100% - 40px);
 }
 
-.total.card {
-    width: calc(50% - 40px);
+.resource.card {
+    width: calc(100% - 40px);
 }
 
 /* Button styles */

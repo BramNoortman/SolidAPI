@@ -1,7 +1,7 @@
 <?php
 // Include the database connection and Header
 $conn = require 'Includes/DBconnection.php';
-require 'Includes/Header.php';
+require 'Includes/header.php';
 
 // Get the values from the form input
 $unitName = $_POST['unitName'];

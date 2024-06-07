@@ -12,9 +12,9 @@
 <div class="header">
   <img src="Media/kiota-logo.png" alt="Company Logo" class="logo">
   <div class="header-right">
-    <a href="index.html">Unit 1</a>
-    <a href="unit2.html">Unit 2</a>
-    <a class ="active" href="totaal.html">Totaal :)</a>
+    <a href="index.php">Unit 1</a>
+    <a href="unit2.php">Unit 2</a>
+    <a class ="active" href="totaal.php">Totaal :)</a>
   </div>
 </div>
 

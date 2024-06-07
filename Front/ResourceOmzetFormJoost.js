@@ -1,62 +1,76 @@
+// Fetch the user data from the server
+fetch('../User.php')
+    .then(response => response.json()) // Parse the response as JSON
+    .then(data => {
+        // Get the dropdown element
+        const dropdown = document.getElementById('userDropdown');
+
+        // Create an option element for each user
+        data.forEach(user => {
+            const option = document.createElement('option');
+            option.value = user.voornaam + ' ' + user.achternaam;
+            option.text = user.voornaam + ' ' + user.achternaam;
+            dropdown.add(option);
+        });
+    })
+    .catch(error => console.error('Error:', error));
 
 // Function to close all forms
 function closeAllForms() {
     document.getElementById('salesInputForm').style.display = 'none';
-    document.getElementById('resourceInputForm').style.display = 'none';
+    document.getElementById('resourceInputForm').style.display = 'none'; // Updated ID
     document.getElementById('totalInputForm').style.display = 'none';
 }
 
 // Event listener for the open form button in the Resource Omzet card
-document.querySelector('.resources.card .open-form-button').addEventListener('click', function() {
-    console.log('Open form button clicked')
-    closeAllForms();
-  document.getElementById('resourceOmzetInputForm').style.display = 'block';
-});
+var openFormButton = document.querySelector('.resources.card .open-form-button');
+if (openFormButton) {
+    openFormButton.addEventListener('click', function() {
+        closeAllForms();
+        document.getElementById('resourceInputForm').style.display = 'block'; // Updated ID
+    });
+} else {
+    console.error('Open form button not found');
+}
 
 // Event listener for the form submit event in the Resources Omzet form
-document.getElementById('resourceOmzetDataForm').addEventListener('submit', function (event) {
-    // Prevent the form from being submitted the default way
+document.getElementById('resourceDataForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
-    // Get the input values from the form
-    var unitName = document.getElementById('ResourceunitName').value;
-    var omzet = document.getElementById('omzet').value;
-    var userName = document.getElementById('userName').value;
+    var unitId = 1; // Hardcoded unitId
+    var omzet = (document.getElementById('omzet').value);
 
-    // Create a new FormData object
     var formData = new FormData();
-    formData.append('unitName', unitName);
+    formData.append('unitId', unitId);
     formData.append('omzet', omzet);
-    formData.append('userName', userName);
 
-    // Create a new XMLHttpRequest
+    // Get the dropdown element
+    var dropdown = document.getElementById('userDropdown');
+
+    // Get the selected value
+    var selectedValue = dropdown.value;
+
+    // Append the selected value to the formData object
+    formData.append('userName', selectedValue);
+
     var xhr = new XMLHttpRequest();
+    xhr.open('POST', '../ResourceOmzetInputJoost.php', true);
 
-    // Configure the request
-    xhr.open('POST', '../SolidAPI/ResourceOmzetInputJoost.php', true);
-
-    // Set up a handler for when the request finishes
     xhr.onload = function () {
-        // Log the status code
         console.log('Status code:', xhr.status);
 
         if (xhr.status === 200) {
-            // The request was successful
             console.log(this.responseText);
-        } else {
-            // The request failed
-            console.error('An error occurred during the transaction');
+        // } else {
+        //     console.error('An error occurred during the transaction');
         }
     };
 
-    // Send the request
     xhr.send(formData);
-
-    // Close the form
     document.getElementById('resourceInputForm').style.display = 'none';
 });
 
 // Event listener for the close form button in the Resources Omzet form
-document.getElementById('closeResourceFormButton').addEventListener('click', function () {
-    document.getElementById('resourceInputForm').style.display = 'none';
+document.getElementById('closeResourceFormButton').addEventListener('click', function () { // Updated ID
+    document.getElementById('resourceInputForm').style.display = 'none'; // Updated ID
 });

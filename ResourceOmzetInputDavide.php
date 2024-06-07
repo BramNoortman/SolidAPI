@@ -3,7 +3,7 @@
 
 // Include the database connection and Header
 $conn = require 'Includes/DBconnection.php';
-require 'Includes/Header.php';
+require 'Includes/header.php';
 
 // Hardcode the unitName as "Eindhoven" and get the userName and omzet from the POST request
 $unitName ="Eindhoven";

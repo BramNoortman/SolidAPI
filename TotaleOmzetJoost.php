@@ -6,13 +6,11 @@ require 'Includes/header.php';
 
 // Check if the request method is GET
 if($_SERVER['REQUEST_METHOD'] == "GET") {
-    // Check if an 'id' is provided in the GET parameters
-    if (isset($_GET['id'])) {
-        // Store the 'id' in a variable
-        $id = $_GET['id'];
+    // Hardcode the 'id' to be 1
+    $id = 1;
 
         // Prepare a SQL statement to select 'omzet' from the 'sales_omzet' table where 'id' matches the provided 'id'
-        $stmt = $conn->prepare("SELECT omzet FROM sales_omzet WHERE id = ?");
+        $stmt = $conn->prepare("SELECT omzet FROM totale_omzet WHERE id = ?");
 
         // Bind the provided 'id' to the SQL statement
         $stmt->bind_param("i", $id);
@@ -34,5 +32,4 @@ if($_SERVER['REQUEST_METHOD'] == "GET") {
     } else {
         // If no 'id' was provided, return a JSON response with a message saying "No id provided"
         echo json_encode(array("message" => "No id provided"));
-    }
 }

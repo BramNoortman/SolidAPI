@@ -12,9 +12,9 @@
 <div class="header">
     <img src="Media/kiota-logo.png" alt="Company Logo" class="logo">
     <div class="header-right">
-        <a href="index.html">Unit 1</a>
-        <a class ="active" href="unit2.html">Unit 2</a>
-        <a href="totaal.html">Totaal :)</a>
+        <a href="index.php">Unit 1</a>
+        <a class ="active" href="unit2.php">Unit 2</a>
+        <a href="totaal.php">Totaal :)</a>
     </div>
 </div>
 
@@ -66,15 +66,15 @@
 </div>
 
 <!-- Resource Omzet Form -->
-<div id="resourceInputForm" class="form-card resource-form-card" style="display: none;">
+<div id="resourceInputForm" class="form-card resource-form-card" style="display: none">
     <form id="resourceDataForm">
         <h2 class="form-title">Resource Omzet</h2>
         <label for="unitId">Unit ID:</label><br>
         <input type="text" id="unitId" name="unitId"><br>
         <label for="omzet">Omzet:</label><br>
         <input type="text" id="omzet" name="omzet"><br>
-        <label for="userId">User ID:</label><br>
-        <input type="text" id="userId" name="userId"><br>
+        <label for="userDropdown">User Name:</label>
+        <select id="userDropdown"></select>
         <input type="submit" value="Submit" class="submit-button">
         <button id="closeResourceFormButton" class="open-form-button">Close</button>
     </form>
@@ -92,6 +92,5 @@
     </form>
 </div>
 <div class="footer"></div>
-<script src="Forum.js"></script>
 </body>
 </html>

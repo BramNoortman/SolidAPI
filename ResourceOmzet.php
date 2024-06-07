@@ -2,7 +2,7 @@
 
 // Include the database connection file
 $conn = require 'Includes/DBconnection.php';
-require 'Includes/Header.php';
+require 'Includes/header.php';
 
 // Prepare a SQL statement to select 'voornaam', 'achternaam' and SUM of 'omzet' from the 'user' table
 // The 'resource_omzet' table is left joined with the 'user' table based on the 'user_Id'
