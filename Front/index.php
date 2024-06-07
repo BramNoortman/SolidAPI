@@ -73,7 +73,7 @@
             <label for="salesOmzet">Omzet:</label><br>
             <input type="text" id="salesOmzet" name="salesOmzet"><br>
             <button type="submit" class="submit-button">Submit</button>
-            <button type="button" id="ClosesSalesFormButton" class="open-form-button">Close</button>
+            <button type="button" id="closeSalesFormButton" class="open-form-button">Close</button>
         </form>
     </div>
 
