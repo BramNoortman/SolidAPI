@@ -5,7 +5,7 @@ API voor het project SOLID van KIOTA.
 - Xampp
 
 ## Hoe te installeren
-1. Installeer Xampp. [downloadlink](https://www.apachefriends.org/)
+1. Installeer [Xampp](https://www.apachefriends.org/).
 2. Open Xampp.
 3. Klik op 'start' bij Apache en MySQL.
 4. Druk op 'admin' bij MySQL.
