@@ -105,6 +105,7 @@
     </div>
 
     <div class="footer"></div>
+
     <script src="ResourceOmzetFormJoost.js"></script>
     <script src="SalesOmzetGetJoost.js"></script>
     <script src="TotaleOmzetGetJoost.js"></script>

@@ -1,5 +1,5 @@
 // Fetch the data from the ResourceOmzet.php file
-fetch('../ResourceOmzet.php')
+fetch('../ResourceOmzetJoost.php')
     .then(response => response.json()) // Parse the response as JSON
     .then(users => {
         // Get the element where you want to display the users
